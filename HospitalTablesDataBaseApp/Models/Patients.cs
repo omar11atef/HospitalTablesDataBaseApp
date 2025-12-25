@@ -24,5 +24,11 @@ namespace HospitalTablesDataBaseApp.Models
         public decimal Max_Medical_Expenses { get; set; }   
         public string? NameofDisease { get; set; }
 
+        public ICollection<Appointment>? Appointments { get; set; }
+
+        //relastionship with Room :
+        public ICollection<Room>? Rooms { get; set; }
+        //relastionship with Docoter :
+        public ICollection<Doctor>? Doctors { get; set; }
     }
 }

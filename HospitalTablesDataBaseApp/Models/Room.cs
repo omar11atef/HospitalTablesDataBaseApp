@@ -19,5 +19,8 @@ namespace HospitalTablesDataBaseApp.Models
         public bool IsOccupied { get; set; }
         public decimal PricePerDay { get; set; }  
         public bool isAvailable { get; set; }
+
+        // Relationship With Partient
+        public ICollection<Patients>? Patients { get; set; }
     }
 }

@@ -18,6 +18,12 @@ namespace HospitalTablesDataBaseApp.Configration
             builder.Property(x => x.Age).IsRequired();
             builder.Property(x => x.IsActive).HasDefaultValueSql("1");
             builder.Property(x=>x.Visit).HasDefaultValueSql("GETDATE()");
+            // RelationShips
+            // One Patient Has Many Appointments
+            builder.HasMany(x => x.Appointments)
+                   .WithOne(x => x.Patient!)
+                   .HasForeignKey(x => x.PatientId)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -14,10 +14,17 @@ namespace HospitalTablesDataBaseApp.Configration
         public void Configure(EntityTypeBuilder<Doctor> builder)
         {
             builder.HasKey(x=>x.Id).HasName("Doctor_PrimaryKey");
-            builder.Property(x=>x.PhoneNumber).HasConversion<string>();
-            builder.Property(x=>x.TotalHoursWorked).HasDefaultValueSql("0.0");
-            builder.Property(x=>x.IsAvailable).HasDefaultValueSql("1");
+            builder.Property(x => x.PhoneNumber)
+                   .HasConversion<string>()
+                   .HasMaxLength(20)
+                   .IsRequired();
 
+            builder.Property(x=>x.TotalHoursWorked).HasDefaultValue(0.0);
+            builder.Property(x=>x.IsAvailable).HasDefaultValue(true);
+            builder.HasOne(x=>x.Department).WithMany(d=>d.Doctors).HasForeignKey(x=>x.DepartmentId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(x=>x.Appointments).WithOne(a=>a.Doctor).HasForeignKey(x=>x.DoctorId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(x=>x.MedicalRecords).WithOne(m=>m.Doctor).HasForeignKey(x=>x.DoctorId).OnDelete(DeleteBehavior.Restrict);
+           
         }
 
     }

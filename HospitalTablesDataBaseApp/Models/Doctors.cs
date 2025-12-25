@@ -28,6 +28,19 @@ namespace HospitalTablesDataBaseApp.Models
         public string? PhoneNumber { get; set; }
         public bool IsAvailable { get; set; }
 
+        //relationships
+        // One Doctor belongs to one Department
+        public int DepartmentId { get; set; }
+        public Departments? Department { get; set; }
+        // One Doctor has many Appointments
+        public ICollection<Appointment>? Appointments { get; set; }
+        // One Docotr has many MedicalRecords 
+        public ICollection<MedicalRecords> MedicalRecords { get; set; }
+        = new HashSet<MedicalRecords>();
+        // Many Doctors have many Patients
+        public ICollection<Patients>? Patients { get; set; }
+
+
     }
 
     public class PrintInfoDoctor: IDoctorPrinter

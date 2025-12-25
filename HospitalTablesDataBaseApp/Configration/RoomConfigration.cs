@@ -15,8 +15,13 @@ namespace HospitalTablesDataBaseApp.Configration
         {
             builder.HasKey(x=>x.Id).HasName("Room_PrimaryKey");
             builder.Property(x=>x.CreatedAt).HasDefaultValueSql("GETDATE()");
-            builder.Property(x => x.isAvailable).HasDefaultValue("Not Available");
-            builder.Property(x => x.PricePerDay).HasComputedColumnSql("[CreatedAt]+[LastOpen]*0.5");
+            builder.Property(x => x.isAvailable)
+                    .HasDefaultValue(true); //
+
+            builder.Property(x => x.PricePerDay)
+                    .HasComputedColumnSql(
+           "DATEDIFF(DAY, [CreatedAt], [LastOpen]) * 0.5");
+
         }
     }
 }

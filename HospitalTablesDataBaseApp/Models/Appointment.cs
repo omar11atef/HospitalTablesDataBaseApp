@@ -24,11 +24,13 @@ namespace HospitalTablesDataBaseApp.Models
         public AppointmentStatus Status { get; set; }
         [MaxLength(100)]
         public string? Notes { get; set; }
+        // relationship with Doctor
         public int DoctorId { get; set; }
         public Doctor? Doctor { get; set; }
+        // relationship with Patient
         public int PatientId { get; set; }
         public Patients? Patient { get; set; }
-
+        // relationship with MedicalRecords
         public MedicalRecords? MedicalRecords { get; set; }
         //Note : Must One Doctor Has one DateTime 
 

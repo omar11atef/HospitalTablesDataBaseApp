@@ -7,14 +7,19 @@ using System.Threading.Tasks;
 
 namespace HospitalTablesDataBaseApp.Models
 {
+    public abstract class BaseEntity
+    {
+        public int Id { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public bool IsDeleted { get; set; } = false; // Soft Delete
+    }
     public interface IDoctorPrinter
     {
         void DisplayDoctorInfo(Doctor doctor);
     }
 
-    public class Doctor
+    public class Doctor : BaseEntity
     {
-        public int Id { get; set; }
         [Required]
         [MaxLength(50)]
         public string? Name { get; set; }
@@ -26,7 +31,11 @@ namespace HospitalTablesDataBaseApp.Models
         public decimal TotalHoursWorked { get; set; }
         [Required]
         public string? PhoneNumber { get; set; }
-        public bool IsAvailable { get; set; }
+        [Required(ErrorMessage = "pleas enter your NationalId")]
+        [StringLength(14, MinimumLength = 14, ErrorMessage = "that Must 14 number")]
+        [RegularExpression(@"^\d+$", ErrorMessage = "only Numbers")]
+        public string NationalId { get; set; } = null!;
+
 
         //relationships
         // One Doctor belongs to one Department

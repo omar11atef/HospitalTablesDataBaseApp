@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore; // Add this using directive
+﻿using HospitalTablesDataBaseApp.Models;
+using HospitalTablesDataBaseApp.Querys;
+using Microsoft.EntityFrameworkCore; // Add this using directive
 using Microsoft.EntityFrameworkCore.Infrastructure; // Add this using directive
-using System.Data.Common; // Add this using directive
 using System;
+using System.Data.Common; // Add this using directive
 namespace HospitalTablesDataBaseApp
 {
     internal class Program
@@ -15,12 +17,15 @@ namespace HospitalTablesDataBaseApp
                 Console.WriteLine("Connection String:");
                 var connectionString = context.Database.GetDbConnection().ConnectionString;
                 Console.WriteLine(connectionString);
-
+                //context.Doctors.GetAllDoctors;
+                
                 // Optional: Test if connection works
                 bool isConnected = context.TestConnection();
                 Console.WriteLine(isConnected
                     ? "Database connection is successful!"
                     : "Failed to connect to the database.");
+
+                
             }
 
 

@@ -16,8 +16,11 @@ namespace HospitalTablesDataBaseApp
                 // Print the connection string
                /* Console.WriteLine("Connection String:");
                 var connectionString = context.Database.GetDbConnection().ConnectionString;
+
                 Console.WriteLine(connectionString);*/
                
+                //context.Doctors.GetAllDoctors;
+                
                 // Optional: Test if connection works
                 bool isConnected = context.TestConnection();
                 Console.WriteLine(isConnected
@@ -42,8 +45,11 @@ namespace HospitalTablesDataBaseApp
                 }*/
 
                 context.Appointments.IfManyAppointmentONSameTime(context);
+                context.Rooms.GetAllRooms();
+
                 
                 
+
 
             }
 

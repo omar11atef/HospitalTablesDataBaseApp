@@ -15,10 +15,10 @@ namespace HospitalTablesDataBaseApp
             {
                 // Print the connection string
                /* Console.WriteLine("Connection String:");
-                var connectionString = context.Database.GetDbConnection().ConnectionString;
-
+                var connectionString = context.Database.GetDbConnection().ConnectionString
                 Console.WriteLine(connectionString);*/
                
+                Console.WriteLine(connectionString);
                 //context.Doctors.GetAllDoctors;
                 
                 // Optional: Test if connection works
@@ -26,8 +26,6 @@ namespace HospitalTablesDataBaseApp
                 Console.WriteLine(isConnected
                     ? "Database connection is successful!"
                     : "Failed to connect to the database.");
-
-                // Seed Test Data :
                 /*try
                 {
                     Console.WriteLine("Seeding Data...");
@@ -45,12 +43,7 @@ namespace HospitalTablesDataBaseApp
                 }*/
 
                 context.Appointments.IfManyAppointmentONSameTime(context);
-                context.Rooms.GetAllRooms();
-
-                
-                
-
-
+                context.Rooms.GetAllRooms();   
             }
 
 

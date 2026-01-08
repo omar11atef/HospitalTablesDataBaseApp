@@ -15,9 +15,17 @@ namespace HospitalTablesDataBaseApp
             {
                 // Print the connection string
                /* Console.WriteLine("Connection String:");
+<<<<<<< HEAD
                 var connectionString = context.Database.GetDbConnection().ConnectionString
                 Console.WriteLine(connectionString);*/
                
+=======
+                var connectionString = context.Database.GetDbConnection().ConnectionString;
+                Console.WriteLine(connectionString);*/
+               
+
+                Console.WriteLine(connectionString);
+>>>>>>> 2def763b892178e34518f459fce6f8fe48cc8700
                 Console.WriteLine(connectionString);
                 //context.Doctors.GetAllDoctors;
                 
@@ -26,6 +34,11 @@ namespace HospitalTablesDataBaseApp
                 Console.WriteLine(isConnected
                     ? "Database connection is successful!"
                     : "Failed to connect to the database.");
+<<<<<<< HEAD
+=======
+
+                // Seed Test Data :
+>>>>>>> 2def763b892178e34518f459fce6f8fe48cc8700
                 /*try
                 {
                     Console.WriteLine("Seeding Data...");
@@ -43,7 +56,11 @@ namespace HospitalTablesDataBaseApp
                 }*/
 
                 context.Appointments.IfManyAppointmentONSameTime(context);
+<<<<<<< HEAD
                 context.Rooms.GetAllRooms();   
+=======
+                context.Rooms.GetAllRooms();
+>>>>>>> 2def763b892178e34518f459fce6f8fe48cc8700
             }
 
 

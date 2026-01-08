@@ -14,8 +14,12 @@ namespace HospitalTablesDataBaseApp
             using (var context = new ApplacationDBContext())
             {
                 // Print the connection string
-                Console.WriteLine("Connection String:");
+               /* Console.WriteLine("Connection String:");
                 var connectionString = context.Database.GetDbConnection().ConnectionString;
+                Console.WriteLine(connectionString);*/
+               
+
+                Console.WriteLine(connectionString);
                 Console.WriteLine(connectionString);
                 //context.Doctors.GetAllDoctors;
                 
@@ -25,7 +29,25 @@ namespace HospitalTablesDataBaseApp
                     ? "Database connection is successful!"
                     : "Failed to connect to the database.");
 
-                
+                // Seed Test Data :
+                /*try
+                {
+                    Console.WriteLine("Seeding Data...");
+                    DataSeederTestQuery.Seed(context);
+
+                    Console.WriteLine("✅ Database seeded successfully!");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error seeding data: {ex.Message}");
+                    if (ex.InnerException != null)
+                    {
+                        Console.WriteLine($"🔍 Inner Exception: {ex.InnerException.Message}");
+                    }
+                }*/
+
+                context.Appointments.IfManyAppointmentONSameTime(context);
+                context.Rooms.GetAllRooms();
             }
 
 
